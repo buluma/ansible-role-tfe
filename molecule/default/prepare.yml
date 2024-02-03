@@ -5,10 +5,10 @@
   gather_facts: no
 
   roles:
-    - role: robertdebock.bootstrap
-    - role: robertdebock.core_dependencies
-    - role: robertdebock.docker_ce
-    - role: robertdebock.docker_compose
+    - role: buluma.bootstrap
+    - role: buluma.core_dependencies
+    - role: buluma.docker_ce
+    - role: buluma.docker_compose
 
   post_tasks:
     # The role docker_ce skips starting on Docker hosts.

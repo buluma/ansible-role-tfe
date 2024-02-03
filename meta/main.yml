@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: robertdebock
+  author: buluma
   role_name: tfe
   description: Install and configure tfe on your system.
   license: Apache-2.0
