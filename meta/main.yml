@@ -4,7 +4,7 @@ galaxy_info:
   role_name: tfe
   description: Install and configure tfe on your system.
   license: Apache-2.0
-  company: none
+  company: ShadowNet
   min_ansible_version: "2.12"
 
   platforms:

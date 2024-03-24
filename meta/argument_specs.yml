@@ -5,7 +5,7 @@ argument_specs:
     short_description: "Install and configure tfe on your system."
     description: >
       Install and configure tfe on your system.
-    author: Shadow Walker
+    author: Robert de Bock
     options:
       tfe_image:
         type: "str"
@@ -39,6 +39,14 @@ argument_specs:
         type: "str"
         default: "bundle.pem"
         description: "A TLS bundle."
+      tfe_operational_mode:
+        type: "str"
+        default: "active-active"
+        description: "You can set the operational mode to either: 'disk', 'external' or 'active-active'."
+        choices:
+          - "disk"
+          - "external"
+          - "active-active"
       tfe_database_host:
         type: "str"
         default: "tfe.RaNdOm.eu-west-1.rds.amazonaws.com"
@@ -59,6 +67,14 @@ argument_specs:
         type: "str"
         default: "sslmode=disable"
         description: "A database parameter."
+      tfe_object_storage_s3_endpoint:
+        type: "str"
+        default: ""
+        description: "Useful when using a private S3 endpoint. Leave blank to use the default AWS S3 endpoint."
+      tfe_object_storage_s3_use_instance_profile:
+        type: "bool"
+        default: false
+        description: "Use an instance profile for S3 access."
       tfe_object_storage_s3_bucket:
         type: "str"
         default: "SomeBucketName"
@@ -79,3 +95,7 @@ argument_specs:
         type: "str"
         default: "tfe.RaNdOm.0001.euw1.cache.amazonaws.com"
         description: "A Redis hostname."
+      tfe_vault_cluster_address:
+        type: "str"
+        default: "https://ANSIBLE_DEFAULT_IP_V4.ADDRESS:8201"
+        description: "The internal Vault requires an internal address of the node."
