@@ -1,5 +1,9 @@
 # Changelog
 
+## [v24.03.24](https://github.com/buluma/ansible-role-tfe/tree/v24.03.24) (2024-03-24)
+
+[Full Changelog](https://github.com/buluma/ansible-role-tfe/compare/v0.1.0...v24.03.24)
+
 ## [v0.1.0](https://github.com/buluma/ansible-role-tfe/tree/v0.1.0) (2024-02-03)
 
 [Full Changelog](https://github.com/buluma/ansible-role-tfe/compare/aa2445269456a4070f1d08989d062cc876eee312...v0.1.0)
