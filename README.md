@@ -1,10 +1,10 @@
-# Ansible role [tfe](https://galaxy.ansible.com/ui/standalone/roles/buluma/tfe/documentation)
+# [Ansible role tfe](#ansible-role-tfe)
 
 Install and configure tfe on your system.
 
-|GitHub|Version|Issues|Pull Requests|Downloads|
-|------|-------|------|-------------|---------|
-|[![github](https://github.com/buluma/ansible-role-tfe/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-tfe/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-tfe.svg)](https://github.com/buluma/ansible-role-tfe/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-tfe.svg)](https://github.com/buluma/ansible-role-tfe/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-tfe.svg)](https://github.com/buluma/ansible-role-tfe/pulls/)|[![Ansible Role](https://img.shields.io/ansible/role/d/buluma/tfe)](https://galaxy.ansible.com/ui/standalone/roles/buluma/tfe/documentation)|
+|GitHub|GitLab|Downloads|Version|
+|------|------|---------|-------|
+|[![github](https://github.com/buluma/ansible-role-tfe/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-tfe/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-tfe/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-tfe)|[![downloads](https://img.shields.io/ansible/role/d/buluma/tfe)](https://galaxy.ansible.com/buluma/tfe)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-tfe.svg)](https://github.com/buluma/ansible-role-tfe/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -141,19 +141,18 @@ tfe_vault_cluster_address: "https://{{ ansible_default_ipv4.address }}:8201"
 
 The following roles are used to prepare a system. You can prepare your system in another way.
 
-| Requirement | GitHub | Version |
+| Requirement | GitHub | GitLab |
 |-------------|--------|--------|
-|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Ansible Molecule](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-bootstrap.svg)](https://github.com/shadowwalker/ansible-role-bootstrap)|
-|[buluma.core_dependencies](https://galaxy.ansible.com/buluma/core_dependencies)|[![Ansible Molecule](https://github.com/buluma/ansible-role-core_dependencies/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-core_dependencies/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-core_dependencies.svg)](https://github.com/shadowwalker/ansible-role-core_dependencies)|
-|[buluma.docker_ce](https://galaxy.ansible.com/buluma/docker_ce)|[![Ansible Molecule](https://github.com/buluma/ansible-role-docker_ce/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-docker_ce/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-docker_ce.svg)](https://github.com/shadowwalker/ansible-role-docker_ce)|
-|[buluma.docker_compose](https://galaxy.ansible.com/buluma/docker_compose)|[![Ansible Molecule](https://github.com/buluma/ansible-role-docker_compose/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-docker_compose/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-docker_compose.svg)](https://github.com/shadowwalker/ansible-role-docker_compose)|
+|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-bootstrap)|
+|[buluma.core_dependencies](https://galaxy.ansible.com/buluma/core_dependencies)|[![Build Status GitHub](https://github.com/buluma/ansible-role-core_dependencies/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-core_dependencies/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-core_dependencies/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-core_dependencies)|
+|[buluma.docker_ce](https://galaxy.ansible.com/buluma/docker_ce)|[![Build Status GitHub](https://github.com/buluma/ansible-role-docker_ce/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-docker_ce/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-docker_ce/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-docker_ce)|
+|[buluma.docker_compose](https://galaxy.ansible.com/buluma/docker_compose)|[![Build Status GitHub](https://github.com/buluma/ansible-role-docker_compose/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-docker_compose/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-docker_compose/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-docker_compose)|
 
 ## [Context](#context)
 
-This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.github.io/) for further information.
+This role is part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.github.io/) for further information.
 
 Here is an overview of related roles:
-
 ![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-tfe/png/requirements.png "Dependencies")
 
 ## [Compatibility](#compatibility)
@@ -162,27 +161,24 @@ This role has been tested on these [container images](https://hub.docker.com/u/b
 
 |container|tags|
 |---------|----|
-|[Debian](https://hub.docker.com/r/buluma/debian)|bullseye|
-|[EL](https://hub.docker.com/r/buluma/enterpriselinux)|8, 9|
-|[Fedora](https://hub.docker.com/r/buluma/fedora)|38, 39|
+|[Debian](https://hub.docker.com/r/buluma/debian)|all|
+|[EL](https://hub.docker.com/r/buluma/enterpriselinux)|all|
+|[Fedora](https://hub.docker.com/r/buluma/fedora)|all|
 |[Ubuntu](https://hub.docker.com/r/buluma/ubuntu)|all|
 
-The minimum version of Ansible required is 2.12, tests have been done to:
+The minimum version of Ansible required is 2.12, tests have been done on:
 
 - The previous version.
 - The current version.
 - The development version.
 
-If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-tfe/issues)
-
-## [Changelog](#changelog)
-
-[Role History](https://github.com/buluma/ansible-role-tfe/blob/master/CHANGELOG.md)
+If you find issues, please register them on [GitHub](https://github.com/buluma/ansible-role-tfe/issues).
 
 ## [License](#license)
 
-[Apache-2.0](https://github.com/buluma/ansible-role-tfe/blob/master/LICENSE)
+[Apache-2.0](https://github.com/buluma/ansible-role-tfe/blob/master/LICENSE).
 
 ## [Author Information](#author-information)
 
-[Shadow Walker](https://buluma.github.io/)
+[buluma](https://buluma.github.io/)
+
