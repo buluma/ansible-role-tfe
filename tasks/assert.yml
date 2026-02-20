@@ -1,5 +1,4 @@
 ---
-
 - name: assert | Test tfe_image
   ansible.builtin.assert:
     that:
