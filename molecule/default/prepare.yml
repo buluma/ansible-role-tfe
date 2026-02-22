@@ -1,19 +1,15 @@
----
-- name: Prepare
-  hosts: all
-  become: true
+- become: true
   gather_facts: false
-
-  roles:
-    - role: buluma.bootstrap
-    - role: buluma.core_dependencies
-    - role: buluma.docker_ce
-    - role: buluma.docker_compose
-
+  hosts: all
+  name: Prepare
   post_tasks:
-    # The role docker_ce skips starting on Docker hosts.
-    - name: Start docker daemon
-      ansible.builtin.service:
-        name: docker
-        state: started
-        enabled: true
+  - ansible.builtin.service:
+      enabled: true
+      name: docker
+      state: started
+    name: Start docker daemon
+  roles:
+  - role: buluma.bootstrap
+  - role: buluma.core_dependencies
+  - role: buluma.docker_ce
+  - role: buluma.docker_compose

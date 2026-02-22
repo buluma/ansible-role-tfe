@@ -1,124 +1,111 @@
 ---
-# tasks file for tfe
-
 - name: Import assert.yml
   ansible.builtin.import_tasks:
     file: assert.yml
-  run_once: true
   delegate_to: localhost
-
+  run_once: true
 - name: Log into DockerHub
   community.docker.docker_login:
+    password: "{{ tfe_license }}"
     registry: images.releases.hashicorp.com
     username: terraform
-    password: "{{ tfe_license }}"
   when:
     - tfe_license is defined
     - tfe_license != ""
-
 - name: Create /var/lib/terraform-enterprise
   ansible.builtin.file:
-    path: /var/lib/terraform-enterprise
-    state: directory
-    owner: root
     group: root
     mode: "0775"
+    owner: root
+    path: /var/lib/terraform-enterprise
+    state: directory
   when:
     - tfe_operational_mode == "disk"
-
 - name: Create directories in /etc/terraform-enterprise
   ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    owner: root
     group: root
     mode: "0755"
+    owner: root
+    path: "{{ item }}"
+    state: directory
   loop:
     - /etc/terraform-enterprise
     - /etc/terraform-enterprise/certs
-
 - name: Place TLS material
   ansible.builtin.copy:
-    src: "{{ item.name }}"
     dest: "{{ item.dest }}"
-    owner: root
     group: root
     mode: "{{ item.mode }}"
+    owner: root
+    src: "{{ item.name }}"
   loop:
-    - name: "{{ tfe_tls_bundle }}"
-      dest: /etc/terraform-enterprise/certs/bundle.pem
+    - dest: /etc/terraform-enterprise/certs/bundle.pem
       mode: "0664"
-    - name: "{{ tfe_tls_certificate }}"
-      dest: /etc/terraform-enterprise/certs/cert.pem
+      name: "{{ tfe_tls_bundle }}"
+    - dest: /etc/terraform-enterprise/certs/cert.pem
       mode: "0664"
-    - name: "{{ tfe_tls_key }}"
-      dest: /etc/terraform-enterprise/certs/key.pem
+      name: "{{ tfe_tls_certificate }}"
+    - dest: /etc/terraform-enterprise/certs/key.pem
       mode: "0660"
+      name: "{{ tfe_tls_key }}"
   loop_control:
     label: "{{ item.name }}"
   notify:
     - Restart terraform-enterprise
-
 - name: Place docker-compose.yml
   ansible.builtin.template:
-    src: docker-compose.yml.j2
     dest: /etc/terraform-enterprise/docker-compose.yml
-    owner: root
     group: root
     mode: "0644"
+    owner: root
+    src: docker-compose.yml.j2
   notify:
     - Restart terraform-enterprise
-
 - name: Place .env
   ansible.builtin.template:
-    src: docker-compose.env.j2
     dest: /etc/terraform-enterprise/.env
-    owner: root
     group: root
     mode: "0400"
+    owner: root
+    src: docker-compose.env.j2
   notify:
     - Restart terraform-enterprise
-
 - name: Create directory tfe_log_forwarding_config_path
   ansible.builtin.file:
-    path: "{{ tfe_log_forwarding_config_path | dirname }}"
-    state: directory
-    owner: root
     group: root
     mode: "0755"
+    owner: root
+    path: "{{ tfe_log_forwarding_config_path | dirname }}"
+    state: directory
   when:
     - tfe_log_forwarding_config_path is defined
-
 - name: Place fluent-bit configuration
   ansible.builtin.copy:
-    src: "{{ tfe_log_forwarding_config_path | basename }}"
     dest: "{{ tfe_log_forwarding_config_path }}"
-    owner: root
     group: root
     mode: "0644"
-  when:
-    - tfe_log_forwarding_config_path is defined
+    owner: root
+    src: "{{ tfe_log_forwarding_config_path | basename }}"
   notify:
     - Restart terraform-enterprise
-
+  when:
+    - tfe_log_forwarding_config_path is defined
 - name: Place terraform-enterprise systemd unit
   ansible.builtin.copy:
-    src: terraform-enterprise.service
     dest: /etc/systemd/system/terraform-enterprise.service
-    owner: root
     group: root
     mode: "0644"
+    owner: root
+    src: terraform-enterprise.service
   notify:
     - Reload systemd
-
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
-
 - name: Start and enable terraform-enterprise
   ansible.builtin.service:
+    enabled: true
     name: terraform-enterprise
     state: started
-    enabled: true
   when:
     - tfe_license is defined
     - tfe_license != ""

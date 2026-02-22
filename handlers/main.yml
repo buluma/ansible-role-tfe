@@ -1,11 +1,8 @@
 ---
-# handlers file for tfe
-
-- name: Reload systemd # noqa: command-instead-of-module
+- name: Reload systemd
   ansible.builtin.command:
     cmd: systemctl daemon-reload
   changed_when: true
-
 - name: Restart terraform-enterprise
   ansible.builtin.service:
     name: terraform-enterprise
