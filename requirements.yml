@@ -1,8 +1,8 @@
 ---
 collections:
-  - name: community.docker
+- name: community.docker
 roles:
-  - name: buluma.bootstrap
-  - name: buluma.core_dependencies
-  - name: buluma.docker_ce
-  - name: buluma.docker_compose
+- name: buluma.bootstrap
+- name: buluma.core_dependencies
+- name: buluma.docker_ce
+- name: buluma.docker_compose
