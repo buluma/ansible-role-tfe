@@ -58,8 +58,7 @@ tfe_database_user: tfe
 tfe_encryption_password: S0meP@ssword
 tfe_hostname: tfe.example.com
 tfe_iact_subnets: []
-tfe_image: 
-  images.releases.hashicorp.com/hashicorp/terraform-enterprise:v202309-1
+tfe_image: images.releases.hashicorp.com/hashicorp/terraform-enterprise:v202309-1
 tfe_license: ""
 tfe_object_storage_s3_access_key_id: ""
 tfe_object_storage_s3_bucket: SomeBucketName
