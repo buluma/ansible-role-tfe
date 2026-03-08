@@ -58,7 +58,7 @@ tfe_database_user: tfe
 tfe_encryption_password: S0meP@ssword
 tfe_hostname: tfe.example.com
 tfe_iact_subnets: []
-tfe_image: images.releases.hashicorp.com/hashicorp/terraform-enterprise:v202309-1
+tfe_image: "images.releases.hashicorp.com/hashicorp/terraform-enterprise:v202309-1"
 tfe_license: ""
 tfe_object_storage_s3_access_key_id: ""
 tfe_object_storage_s3_bucket: SomeBucketName
@@ -75,7 +75,7 @@ tfe_redis_user: tfe
 tfe_tls_bundle: bundle.pem
 tfe_tls_certificate: cert.pem
 tfe_tls_key: key.pem
-tfe_vault_cluster_address: https://{{ ansible_default_ipv4.address }}:8201
+tfe_vault_cluster_address: "https://{{ ansible_default_ipv4.address }}:8201"
 ```
 
 ## [Requirements](#requirements)
@@ -127,3 +127,4 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 ## [Author Information](#author-information)
 
 [buluma](https://buluma.github.io/)
+
