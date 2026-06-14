@@ -1,5 +1,5 @@
 ---
-collections:
+collections: []
   - name: community.docker
 roles:
   - name: buluma.bootstrap
