@@ -25,4 +25,4 @@ tfe_redis_user: tfe
 tfe_tls_bundle: bundle.pem
 tfe_tls_certificate: cert.pem
 tfe_tls_key: key.pem
-tfe_vault_cluster_address: "https://{{ ansible_default_ipv4.address }}:8201"
+tfe_vault_cluster_address: "https://{{ ansible_facts['default_ipv4'].address }}:8201"
