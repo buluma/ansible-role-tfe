@@ -52,7 +52,7 @@
     label: "{{ item.name }}"
   notify:
     - Restart terraform-enterprise
-  # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Place docker-compose.yml
   ansible.builtin.template:
     dest: /etc/terraform-enterprise/docker-compose.yml
@@ -62,7 +62,7 @@
     src: docker-compose.yml.j2
   notify:
     - Restart terraform-enterprise
-  # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Place .env
   ansible.builtin.template:
     dest: /etc/terraform-enterprise/.env
@@ -72,7 +72,7 @@
     src: docker-compose.env.j2
   notify:
     - Restart terraform-enterprise
-  # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Create directory tfe_log_forwarding_config_path
   ansible.builtin.file:
     group: root
@@ -103,7 +103,7 @@
     src: terraform-enterprise.service
   notify:
     - Reload systemd
-  # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
 - name: Start and enable terraform-enterprise
