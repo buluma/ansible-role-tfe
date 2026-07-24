@@ -36,5 +36,11 @@
   roles:
     - role: buluma.bootstrap
     - role: buluma.core_dependencies
+    # buluma.docker_ce already brings in docker-compose-plugin as part of
+    # docker-ce's own recommends, so a separate buluma.docker_compose
+    # install is redundant - and on newer Fedora/Ubuntu it actively
+    # conflicts (both the distro's native docker-compose package and
+    # Docker's docker-compose-plugin declare Conflicts against each
+    # other). Nothing in this role's tasks or verify.yml exercises the
+    # standalone docker-compose binary anyway.
     - role: buluma.docker_ce
-    - role: buluma.docker_compose
