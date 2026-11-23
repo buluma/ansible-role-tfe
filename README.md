@@ -61,8 +61,14 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
   roles:
     - role: buluma.bootstrap
     - role: buluma.core_dependencies
+    # buluma.docker_ce already brings in docker-compose-plugin as part of
+    # docker-ce's own recommends, so a separate buluma.docker_compose
+    # install is redundant - and on newer Fedora/Ubuntu it actively
+    # conflicts (both the distro's native docker-compose package and
+    # Docker's docker-compose-plugin declare Conflicts against each
+    # other). Nothing in this role's tasks or verify.yml exercises the
+    # standalone docker-compose binary anyway.
     - role: buluma.docker_ce
-    - role: buluma.docker_compose
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
@@ -115,7 +121,6 @@ The following roles are used to prepare a system. You can prepare your system in
 |[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|
 |[buluma.core_dependencies](https://galaxy.ansible.com/buluma/core_dependencies)|[![Build Status GitHub](https://github.com/buluma/ansible-role-core_dependencies/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-core_dependencies/actions)|
 |[buluma.docker_ce](https://galaxy.ansible.com/buluma/docker_ce)|[![Build Status GitHub](https://github.com/buluma/ansible-role-docker_ce/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-docker_ce/actions)|
-|[buluma.docker_compose](https://galaxy.ansible.com/buluma/docker_compose)|[![Build Status GitHub](https://github.com/buluma/ansible-role-docker_compose/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-docker_compose/actions)|
 
 ## [Context](#context)
 
